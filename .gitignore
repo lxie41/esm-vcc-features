@@ -5,6 +5,7 @@ venv/
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.pytest-local-temp/
 .ruff_cache/
 .mypy_cache/
 build/
