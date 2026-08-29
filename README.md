@@ -44,7 +44,10 @@ Install the pinned dependencies from `requirements.txt` in a fresh environment. 
 The extractor defaults to `--max-tokens 8192 --max-batch-size 16`; benchmark
 these controls on the target A100 with `scripts/benchmark_extraction.py` using a
 separate 100–300 protein subset before changing the production budget. Use
-`--disable-batching` for the serial reference comparison. Long proteins remain
-on the validated per-protein chunk/reconstruction path.
+`--disable-batching` for the serial reference comparison. The production
+PageRank backend is the tensor implementation, which was numerically equivalent
+to NetworkX on the fixed pilot; use `--pagerank-backend networkx` for reference
+checks. Long proteins remain on the validated per-protein chunk/reconstruction
+path.
 
 Production extraction is intentionally not launched by the shard-preparation task. Model weights, frozen mapping tables, sequence shards, feature outputs, and checkpoints remain outside Git.

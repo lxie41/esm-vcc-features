@@ -11,8 +11,23 @@ from dataclasses import dataclass
 from typing import Iterable, Sequence
 from contextlib import nullcontext
 from pathlib import Path
+import time
 
 import torch
+
+
+def _profile_start(device: str):
+    if device.startswith("cuda"):
+        torch.cuda.synchronize()
+    return time.perf_counter()
+
+
+def _profile_add(timings, name: str, start: float, device: str):
+    if timings is None:
+        return
+    if device.startswith("cuda"):
+        torch.cuda.synchronize()
+    timings[name] = timings.get(name, 0.0) + (time.perf_counter() - start)
 
 
 @dataclass(frozen=True)
@@ -88,7 +103,8 @@ def residue_embeddings_and_attention(model, alphabet, sequence: str, layer: int 
 
 
 def residue_embeddings_and_parti_attention_streaming(model, alphabet, sequence: str,
-                                                      device: str = "cuda", autocast_dtype=None):
+                                                      device: str = "cuda", autocast_dtype=None,
+                                                      timings=None):
     """Run ESM2 while reducing PaRTI attention immediately, without retention.
 
     This is algebraically equivalent to the official max-over-heads followed
@@ -115,14 +131,21 @@ def residue_embeddings_and_parti_attention_streaming(model, alphabet, sequence: 
                    if autocast_dtype is not None and device.startswith("cuda") else nullcontext())
         with context:
             for layer in model.layers:
+                layer_start = _profile_start(device)
                 x, attn = layer(x, self_attn_padding_mask=pmask, need_head_weights=True)
+                _profile_add(timings, "esm2_forward_seconds", layer_start, device)
+                reduce_start = _profile_start(device)
                 layer_max = attn[:, 0].max(dim=0).values
                 running = layer_max if running is None else torch.maximum(running, layer_max)
+                _profile_add(timings, "attention_reduction_seconds", reduce_start, device)
             x = model.emb_layer_norm_after(x).transpose(0, 1)
+    transfer_start = _profile_start(device)
     states = x[0, 1:len(sequence) + 1].detach().float().cpu()
+    attention_cpu = running.detach().float().cpu()
+    _profile_add(timings, "cpu_gpu_transfer_seconds", transfer_start, device)
     if states.shape[0] != len(sequence) or not torch.isfinite(states).all():
         raise RuntimeError("invalid streaming ESM residue output")
-    return states, running.detach().float().cpu()
+    return states, attention_cpu
 
 
 def residue_embeddings_and_parti_attention_streaming_batch(

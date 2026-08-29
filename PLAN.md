@@ -166,4 +166,11 @@ extraction remains prohibited in this task and is the next explicit phase.
 - The manifest-driven resumable Colab runner is implemented and validates local
   outputs before Drive publication.
 - Production extraction has not started. The next task may run the benchmark
-  and, only after its numerical-equivalence gate passes, launch all shards.
+and, only after its numerical-equivalence gate passes, launch all shards.
+
+- NetworkX profiling identified PaRTI graph/PageRank as the dominant serial
+  postprocessing cost. A mathematically equivalent tensor backend is now the
+  production default, with NetworkX retained for reference checks.
+- The supplied A100 batching benchmark does not justify larger native batches;
+  the remaining target-hardware benchmark is tensor PageRank versus NetworkX
+  and Mean+SD-only versus Mean+SD+PaRTI on a separate subset.

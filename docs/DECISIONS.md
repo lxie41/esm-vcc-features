@@ -272,3 +272,15 @@ The A100 shard-0000 result (3,351.6 proteins/hour, 0 failures, ~3.4/40 GiB)
 is retained as the serial baseline. It is not rerun here. The A100 batched
 throughput and cross-environment numerical-equivalence report remain an explicit
 Colab benchmark gate, not an assumed result.
+
+## 2026-08-29 — PaRTI PageRank execution backend
+
+NetworkX profiling showed graph construction/PageRank dominates the serial
+PaRTI postprocessing cost. A tensor power-iteration implementation was added
+without changing the frozen weighted directed graph, alpha, tolerance,
+iteration cap, dangling-node, personalization, BOS/EOS, or normalization rules.
+It matches NetworkX on the fixed real 300/500/700-aa pilot within zero observed
+float32 output error (weight cosine >=1.0, correlation 1.0, JS distance 0,
+final vector cosine >=1.0), and on the deterministic unit suite including a
+dangling node. The tensor backend is the production default; NetworkX remains
+available for reference validation.

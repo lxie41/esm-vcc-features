@@ -511,3 +511,23 @@ is loaded with `torch.load(..., weights_only=False)` under PyTorch >=2.6 as a
 checkpoint-package compatibility setting; it does not change model weights or
 scientific definitions. Cross-environment numerical equivalence must be
 reported from a fixed subset before the A100 execution mode is frozen.
+
+### PageRank throughput profiling (2026-08-29)
+
+The serial stage profile on a separate local CUDA subset of 300/500/700-aa
+proteins identified NetworkX graph construction and PageRank as the dominant
+post-ESM cost: approximately 0.748 s and 0.518 s respectively, compared with
+approximately 0.433 s for ESM forward and 0.033 s for attention reduction.
+Mean pooling, SD pooling, and final weighted pooling were negligible by
+comparison. A Mean+SD-only pass took approximately 0.218 s versus 2.245 s for
+Mean+SD+PaRTI on that diagnostic subset.
+
+The optimized tensor PageRank uses the same float64 weighted row-stochastic
+power iteration as NetworkX: alpha=.85, uniform personalization, uniform
+dangling-node redistribution, L1 stopping criterion `error < N*tol`, tol=1e-6,
+and max_iter=100. BOS/EOS removal and residue renormalization are unchanged.
+On the same real subset, residue weights had mean cosine 1.00000004,
+correlation 1.0, maximum absolute error 0, and JS distance 0 versus NetworkX;
+final PaRTI vectors had mean cosine 1.00000008 and maximum absolute error 0.
+The tensor backend is therefore the production execution default, with NetworkX
+retained as the reference backend.

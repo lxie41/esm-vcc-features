@@ -227,3 +227,14 @@ The only available A100 number is the user-provided serial shard-0000 baseline:
 3,351.6 proteins/hour, 0 failures, 0.5967 hours, and ~3.4/40 GiB. A100 dynamic
 batch benchmark and fixed-subset RTX-3070-Ti/A100 numerical equivalence are not
 claimed until executed on a separate subset in Colab.
+
+## PaRTI bottleneck and tensor backend (2026-08-29)
+
+The local stage profile confirms PaRTI's NetworkX graph construction and power
+iteration, rather than ESM forward or Mean/SD pooling, is the main serial
+bottleneck. The tensor backend gave about 5.27x PageRank-backend speedup on the
+same three real proteins and about 2.75x end-to-end speedup in the local
+batched diagnostic. The A100 native-batching result supplied by the user
+(0.9847x versus serial) is retained: larger native batches should not be
+blindly increased. The next A100 benchmark should compare tensor PageRank and
+Mean+SD-only versus Mean+SD+PaRTI on a separate 100–300 protein subset.

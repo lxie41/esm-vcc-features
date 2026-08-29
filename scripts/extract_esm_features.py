@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import time
 from pathlib import Path
 
 import numpy as np
@@ -24,17 +25,19 @@ def _autocast_dtype(device: str):
     return torch.float16 if device.startswith("cuda") else None
 
 
-def extract_one(model, alphabet, seq, device, cfg):
+def extract_one(model, alphabet, seq, device, cfg, timings=None,
+                pagerank_backend="networkx"):
     """Extract one sequence, retaining the validated long-protein path."""
     starts = chunk_starts(len(seq), cfg.window_size, cfg.overlap)
     chunks, local = [], []
     for start in starts:
         h, attention = residue_embeddings_and_parti_attention_streaming(
             model, alphabet, seq[start:start + cfg.window_size], device,
-            _autocast_dtype(device),
+            _autocast_dtype(device), timings=timings,
         )
         chunks.append(h)
-        z, weights = pool_parti(h, attention.unsqueeze(0).unsqueeze(1))
+        z, weights = pool_parti(h, attention.unsqueeze(0).unsqueeze(1), timings=timings,
+                                pagerank_backend=pagerank_backend)
         local.append((z, weights))
     H = reconstruct_residue_embeddings(
         chunks, starts, len(seq), cfg.overlap, cfg.weighting
@@ -48,18 +51,28 @@ def extract_one(model, alphabet, seq, device, cfg):
             weights[start:start + len(h)] += local_weights * taper
         weights /= weights.sum()
         parti = (H * weights[:, None]).sum(0)
-    return (mean_representation(H).numpy(), mean_sd_representation(H).numpy(),
+    start = time.perf_counter()
+    mean = mean_representation(H).numpy()
+    if timings is not None:
+        timings["mean_pooling_seconds"] = timings.get("mean_pooling_seconds", 0.0) + time.perf_counter() - start
+    start = time.perf_counter()
+    mean_sd = mean_sd_representation(H).numpy()
+    if timings is not None:
+        timings["sd_pooling_seconds"] = timings.get("sd_pooling_seconds", 0.0) + time.perf_counter() - start
+    return (mean, mean_sd,
             parti.numpy(), len(starts))
 
 
-def extract_native_batch(model, alphabet, sequences, device, cfg):
+def extract_native_batch(model, alphabet, sequences, device, cfg,
+                         pagerank_backend="networkx"):
     """Extract native-context sequences in one padded model forward."""
     pairs = residue_embeddings_and_parti_attention_streaming_batch(
         model, alphabet, sequences, device, _autocast_dtype(device)
     )
     results = []
     for H, attention in pairs:
-        parti, weights = pool_parti(H, attention.unsqueeze(0).unsqueeze(1))
+        parti, weights = pool_parti(H, attention.unsqueeze(0).unsqueeze(1),
+                                    pagerank_backend=pagerank_backend)
         if not torch.isfinite(weights).all() or not torch.isfinite(parti).all():
             raise FloatingPointError("non-finite PaRTI output")
         results.append((mean_representation(H).numpy(),
@@ -147,6 +160,8 @@ def main():
     ap.add_argument("--max-batch-size", type=int, default=16)
     ap.add_argument("--disable-batching", action="store_true",
                     help="serial native-context reference mode for benchmarking")
+    ap.add_argument("--pagerank-backend", choices=["networkx", "tensor"],
+                    default="tensor")
     args = ap.parse_args()
 
     out = Path(args.output)
@@ -185,17 +200,20 @@ def main():
 
     for batch in batches:
         try:
-            values = ([extract_one(model, alphabet, row.amino_acid_sequence, device, cfg)
+            values = ([extract_one(model, alphabet, row.amino_acid_sequence, device, cfg,
+                                   pagerank_backend=args.pagerank_backend)
                        for row in batch] if args.disable_batching else
                       extract_native_batch(model, alphabet,
                                            [row.amino_acid_sequence for row in batch],
-                                           device, cfg))
+                                           device, cfg,
+                                           pagerank_backend=args.pagerank_backend))
             for row, result in zip(batch, values):
                 mark_success(row.sequence_hash, _record(result, row, 1))
         except Exception:
             for row in batch:
                 try:
-                    result = extract_one(model, alphabet, row.amino_acid_sequence, device, cfg)
+                    result = extract_one(model, alphabet, row.amino_acid_sequence, device, cfg,
+                                         pagerank_backend=args.pagerank_backend)
                     mark_success(row.sequence_hash, _record(result, row, 1))
                 except Exception as exc:
                     failures.append({"sequence_hash": row.sequence_hash, "error": repr(exc)})
@@ -203,7 +221,8 @@ def main():
 
     for row in long_rows:
         try:
-            result = extract_one(model, alphabet, row.amino_acid_sequence, device, cfg)
+            result = extract_one(model, alphabet, row.amino_acid_sequence, device, cfg,
+                                 pagerank_backend=args.pagerank_backend)
             chunks = len(chunk_starts(len(row.amino_acid_sequence), cfg.window_size, cfg.overlap))
             mark_success(row.sequence_hash, _record(result, row, chunks))
         except Exception as exc:
@@ -215,7 +234,8 @@ def main():
         "completed": len(completed), "failures": len(failures),
         "native_batches": len(batches), "long_rows": len(long_rows),
         "max_tokens": args.max_tokens, "max_batch_size": args.max_batch_size,
-        "batching": not args.disable_batching, "output": str(out),
+        "batching": not args.disable_batching, "pagerank_backend": args.pagerank_backend,
+        "output": str(out),
     }, indent=2))
 
 

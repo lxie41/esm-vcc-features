@@ -42,6 +42,7 @@ esm:
     pagerank_alpha: 0.85
     pagerank_tol: 1.0e-6
     pagerank_max_iter: 100
+    pagerank_backend: tensor
     bos_eos: excluded_after_pagerank
     long_strategy: local_parti_triangular_merge_global_normalize
 
