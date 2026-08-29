@@ -73,9 +73,10 @@ def main():
     ap.add_argument("--output", required=True)
     ap.add_argument("--device", default="cuda")
     ap.add_argument("--count", type=int, default=200)
-    ap.add_argument("--max-tokens", type=int, action="append", default=[4096, 8192, 16384])
+    ap.add_argument("--max-tokens", type=int, action="append", default=None)
     ap.add_argument("--max-batch-size", type=int, default=16)
     args = ap.parse_args()
+    budgets = args.max_tokens or [4096, 8192, 16384]
 
     df = pd.read_parquet(args.input)
     if "protein_length" not in df:
@@ -97,7 +98,7 @@ def main():
                           "residues_per_second": float(subset.protein_length.sum() / serial_seconds),
                           "peak_vram_gib": serial_peak}}
 
-    for budget in args.max_tokens:
+    for budget in budgets:
         batches = make_length_batches(native, budget, args.max_batch_size)
         def batch_fn():
             output = {}
