@@ -32,7 +32,7 @@ def load_model(checkpoint: str | None = None, device: str | None = None):
     if checkpoint:
         # Load the model state directly: ordinary residue/attention extraction
         # does not require FAIR's separate contact-regression weights.
-        model_data = torch.load(checkpoint, map_location="cpu")
+        model_data = torch.load(checkpoint, map_location="cpu", weights_only=False)
         model, alphabet = esm.pretrained.load_model_and_alphabet_core(
             Path(checkpoint).stem, model_data, None
         )
