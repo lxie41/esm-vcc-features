@@ -1,0 +1,38 @@
+{
+  "model_name": "esm2_t33_650M_UR50D",
+  "source": "facebookresearch/esm official FAIR checkpoint",
+  "source_url": "https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t33_650M_UR50D.pt",
+  "package": "fair-esm==2.0.0",
+  "requested_package": "fair-esm==2.0.1 (not published for this runtime)",
+  "download_date": "2026-08-29",
+  "model_file": "data/external/esm2/esm2_t33_650M_UR50D.pt",
+  "model_file_bytes": 2604537549,
+  "model_file_sha256": "EA9D0522B335A8778DEA6535A65301F10208DECE28CD5865482B0B1FC446168C",
+  "auxiliary_file": "data/external/esm2/esm2_t33_650M_UR50D-contact-regression.pt",
+  "auxiliary_file_bytes": 3687,
+  "auxiliary_file_sha256": "8FFE6EDBD4173DC8D45C2CD5CB27D43AAD77EC26B4C768200C58AE1F96693575",
+  "verified_config": {
+    "encoder_layers": 33,
+    "encoder_embed_dim": 1280,
+    "max_positions_tokens": 1024,
+    "supported_residues": 1022,
+    "token_dropout": true,
+    "rotary_embeddings": true
+  },
+  "alphabet": {
+    "bos": {"symbol": "<cls>", "index": 0},
+    "pad": {"symbol": "<pad>", "index": 1},
+    "eos": {"symbol": "<eos>", "index": 2},
+    "unknown": {"symbol": "<unk>", "index": 3},
+    "X": {"index": 24, "preserved_as_distinct_alphabet_symbol": true},
+    "U": {"index": 26, "preserved_as_distinct_alphabet_symbol": true}
+  },
+  "environment": {
+    "python": "3.8.10",
+    "pytorch": "2.4.1+cpu",
+    "cuda_runtime": null,
+    "cuda_available": false,
+    "gpu": null
+  },
+  "scope": "bounded pilot only; full extraction not started"
+}

@@ -1,0 +1,9 @@
+{
+  "total_rows": 174585,
+  "unique_sequence_hashes": 174585,
+  "duplicates": 0,
+  "missing_hashes": 0,
+  "missing_sequences": 0,
+  "sequence_hash_sorted": true,
+  "shard_count": 88
+}

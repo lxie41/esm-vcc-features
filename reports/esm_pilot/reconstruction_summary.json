@@ -1,0 +1,14 @@
+{
+  "reference_set": "5 deterministic frozen hashes spanning lengths 276, 493, 501, 716, 929",
+  "artificial_window": 512,
+  "overlaps_tested": [64, 128, 256],
+  "weightings_tested": ["uniform", "triangular", "cosine"],
+  "aggregate_over_45_reconstructions": {
+    "uniform": {"mean_cosine": 0.996725, "mean_l2": 0.447326, "mean_vector_l2": 0.109977},
+    "triangular": {"mean_cosine": 0.997863, "mean_l2": 0.385598, "mean_vector_l2": 0.102579},
+    "cosine": {"mean_cosine": 0.997840, "mean_l2": 0.387805, "mean_vector_l2": 0.101534}
+  },
+  "pilot_interpretation": "Triangular and cosine were materially better than uniform on this artificial context test; triangular is selected provisionally because it is simpler and its mean per-residue error was marginally lower. Native-window GPU validation remains required before full extraction.",
+  "negative_controls": ["hard_truncate", "chunk_level_mean_then_mean_chunks"],
+  "production_not_started": true
+}

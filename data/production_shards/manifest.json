@@ -1,0 +1,726 @@
+{
+  "source": "data\\processed\\mapping_final\\esm_sequences_final.parquet",
+  "source_sha256": "f785c3a2702cc6c80a06937079ab72886a115e0f517ab577b8e412aafa6fc8d2",
+  "created_utc": "2026-08-29T18:26:17.624243+00:00",
+  "shard_size": 2000,
+  "total_rows": 174585,
+  "unique_sequence_hashes": 174585,
+  "duplicates": 0,
+  "missing_hashes": 0,
+  "missing_sequences": 0,
+  "columns": [
+    "sequence_hash",
+    "amino_acid_sequence",
+    "protein_length",
+    "sequence_source",
+    "annotation_release",
+    "sequence_valid",
+    "sequence_hash_matches_string"
+  ],
+  "shards": [
+    {
+      "shard_id": "0000",
+      "filename": "sequence_shard_0000.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "0000b2349d006ded5e98fbcb97dadd25991d66dbfaea1f2aef298226ea6aaa68",
+      "last_sequence_hash": "02f6c622d1d8f0bcc7ff1a004156c1dbd93609d5c2a551eb6e2821a6568f3daa",
+      "sha256": "df5dd987c0858b98ceebaa93a2f6f8f6366f69c08e0aa9535610280080cbf9a2"
+    },
+    {
+      "shard_id": "0001",
+      "filename": "sequence_shard_0001.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "02f6d48e06beca582fb9033cf61e9c28a1a44a58e60e27f05cf47453c844b824",
+      "last_sequence_hash": "05ed232267a7a3f55a087a81edadc158397251582eddbeccc46aeb1dedeede9f",
+      "sha256": "25e09a5898304bc8eb84e3824b5e9a8de17f3ee7e473a603876472cb3d87edf9"
+    },
+    {
+      "shard_id": "0002",
+      "filename": "sequence_shard_0002.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "05ed5c45659f7a6ba802fc2004ca7a505535316c7667e4d5a10169f3e25bb56e",
+      "last_sequence_hash": "08d455633d69b0ca822b35916dc343e3fa464cd1678798bc504621dab0c7365f",
+      "sha256": "0a1f1a72593a61712b6546c49744386380838064589b38f44ca9f21c075f96dc"
+    },
+    {
+      "shard_id": "0003",
+      "filename": "sequence_shard_0003.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "08d45ec6deea22b78b9e6566e669bba6d7c94ee695aadf98740c7eceaaade04b",
+      "last_sequence_hash": "0bb79819d14b1c141682809f30a89beaaef45769229f0ac93a1593f7b92c1ba6",
+      "sha256": "222426aadd64e0e1e604b220b97e875682ef593282e2acf3cf6bad89434ccf0d"
+    },
+    {
+      "shard_id": "0004",
+      "filename": "sequence_shard_0004.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "0bb83ddb23e5deeeccb8b5e6b5081a6bf9af51ef529ec6edb9b5ce9d941b24f7",
+      "last_sequence_hash": "0eb892196202325532227b53b9e5a2b9bcf7defb69d8eab5a407af932bc696af",
+      "sha256": "e89d69e558043b9e9e4465047ce414a45a9bf064a76ab1a58450c7bf0a35ac2a"
+    },
+    {
+      "shard_id": "0005",
+      "filename": "sequence_shard_0005.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "0eb98659a97f8011b8c2e0aa9229e2fba69d35cf00a522e1415e18e03a9110b3",
+      "last_sequence_hash": "11c2b0a637975058a6ce61df53c9d626a7a58f9b1ba67e55957ff0f2ff45d998",
+      "sha256": "893594dfd96135e9d412d9b5c5ef7f10a37a3ab60ade5a213cefaabb5fe08ed0"
+    },
+    {
+      "shard_id": "0006",
+      "filename": "sequence_shard_0006.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "11c2bd8de3071324ce5f0d6e031566a526857ec3c7311e9ed0ecf83e2d5df34a",
+      "last_sequence_hash": "14a45fae2a805e99e404e90be96cb2a8a6c1e270793e61de5fecd5ceb3dd682b",
+      "sha256": "20401cbbf46db6cff046fae1bdf25dea2f1c1abcf4c87dd224b97969c6b6d32f"
+    },
+    {
+      "shard_id": "0007",
+      "filename": "sequence_shard_0007.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "14a476dc0ad22740eecf3c43b01b6322a99d01338e07c00840643e3d8a156dbb",
+      "last_sequence_hash": "177a1509ac9252628d0131c029801b1edeab62973e51018d17b62fb28a097e1f",
+      "sha256": "a0d9487059963333771e3b02758007ff21e3954bbef9d3887b4d0db657b91772"
+    },
+    {
+      "shard_id": "0008",
+      "filename": "sequence_shard_0008.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "177ab82ec18836f3817c553a3112dd7cd387b744606d23cdf602f31e3f4a2894",
+      "last_sequence_hash": "1a85090a3d0070067cbece1858db645b252a002c1f16c325aca804b70699e079",
+      "sha256": "88bdb3214e0e2f63721b65a096c4e33d5657d3f94f2b44a9f9517884d29a6195"
+    },
+    {
+      "shard_id": "0009",
+      "filename": "sequence_shard_0009.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "1a85364b695b1ffcb16d1d1ddafb83cd87ecb8f40aa958a8a4c7d2d13d5b5d20",
+      "last_sequence_hash": "1d7901ef0a9ad589504a8349c0dfd2f8cec7a555c7f318bb311ccecd80804820",
+      "sha256": "633de99b81441309f30931f3c0e177d8f9145b3e8bcc26891b05a060e22cc52b"
+    },
+    {
+      "shard_id": "0010",
+      "filename": "sequence_shard_0010.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "1d79f83fa6c64455def92dbb45ffd6ec49e3e1d1d2b647da0bce2bf8da3fb8f0",
+      "last_sequence_hash": "20695e6c8d12736e16dcec1cc375faaf722187eb128f0f147a1ddcd7f859d140",
+      "sha256": "a0346fe42d4fcfbca10a8e49500986a5f6592afbeaa61e51b09f988ec68300b1"
+    },
+    {
+      "shard_id": "0011",
+      "filename": "sequence_shard_0011.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "2069e77b6483af338c0a9cdc9d1d1e69785ad2914c8dd29673a5a2679f525faf",
+      "last_sequence_hash": "2345500e5fd1ee20999349f06c8fbd26d70ad052465df4d40f9f8ca6a57088a9",
+      "sha256": "b1dbd5e51300e837914ee9db99b21a90546e3f0a29f85330fa4a164208da44b4"
+    },
+    {
+      "shard_id": "0012",
+      "filename": "sequence_shard_0012.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "234585ffc299cab9c3bb2d4f38de7b46c60980dfe83ce155869593ef416e28e1",
+      "last_sequence_hash": "2631ec4adf26666ee0c33de89e5af57d45bd72a1e415c0b86377e7c62d7fb6fd",
+      "sha256": "987b965e0c992caa54dd9e5f5d6222912cbab588135b6eda02b2fdc75899dc53"
+    },
+    {
+      "shard_id": "0013",
+      "filename": "sequence_shard_0013.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "26321ad94e1384f5c43b0a6c7c71a031362aaee8554652e5f2fea339b50d56b9",
+      "last_sequence_hash": "29131bfa697936af7e585911a179478d02a253e35624f42fdf351c41d30a5187",
+      "sha256": "b40d3b611218055037f4f712f9aa8ebf6e6f573a59f0df9ea9a232349d71a8df"
+    },
+    {
+      "shard_id": "0014",
+      "filename": "sequence_shard_0014.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "29148e624434fbe5bc670a1ae674d8e98253c9cfe9bfff742e111ab1989cf03a",
+      "last_sequence_hash": "2c0a20f736b2fd279d132488e6e337afc5d3cf84c3b6dedba73c70c9cdf01f5c",
+      "sha256": "0ab197349f669f99104df161b1fd7507371c85e03580a7c5afea11455f8d9a6c"
+    },
+    {
+      "shard_id": "0015",
+      "filename": "sequence_shard_0015.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "2c0a5c235038e28c3d8c3bf396772332f57cd905ceb197674ef4c4c657cce9b8",
+      "last_sequence_hash": "2f0dcbf8326bc3a1231691fd4117b73ecacf5852a82a1e097cf40dcace0677a6",
+      "sha256": "88b1efa776746eece37d132fe8ee0df12e41da67add62e827809fc144eb28d29"
+    },
+    {
+      "shard_id": "0016",
+      "filename": "sequence_shard_0016.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "2f0dfe8402863557bf747561d86a3ef58adfd90990768c26feabfd25a48a5730",
+      "last_sequence_hash": "31e9da2462868b07672541603f76251f8be294ff46b1488d6c1b6dc1901c7b3e",
+      "sha256": "639f7c6850dc8617df5fa9f5902b993e7a282dacb8c1b4b9b390258f28d4f78f"
+    },
+    {
+      "shard_id": "0017",
+      "filename": "sequence_shard_0017.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "31ea0ee28ed27ca60602b273fea635f2078b511ad3044e81cedd790f50be7b52",
+      "last_sequence_hash": "34e816b382f4c1bf47bbe71a56b7ae3586f9a7416fe2a4fd122c044a2957d133",
+      "sha256": "75861aaafa800f42d859ef67bd5f6a3e868e5ec2a4d22841f6bfdedac688c5fb"
+    },
+    {
+      "shard_id": "0018",
+      "filename": "sequence_shard_0018.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "34e82962ef4ddbd62edf509ccc6ccc9386b968ed4401e40325730fbc441be15a",
+      "last_sequence_hash": "37f9b6a3c9e1e7d58a853e3b98dbbbedd7768079f336d349fc59266b2b52c664",
+      "sha256": "cc8b68a0875e9287a661ce32055ff6955e98faa177bf2b60def3aee8c849bc19"
+    },
+    {
+      "shard_id": "0019",
+      "filename": "sequence_shard_0019.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "37f9c21fb74e43b082e81ac470322ba85c48d0a7b948acaee9efd7c84c885894",
+      "last_sequence_hash": "3ae3c56c640a08baceb1d1d35b7a45e3f6a1ed0b777ac340b2b7b440958690aa",
+      "sha256": "6a43407df0937300c99632a2f861754f1294a34cc8f9f5420af57b655f36c59d"
+    },
+    {
+      "shard_id": "0020",
+      "filename": "sequence_shard_0020.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "3ae44c4d31fe5941dfb9e639bbc78966ff55d24a310dc83d40504befab916431",
+      "last_sequence_hash": "3de60987079f7deb4af24a2ccf6c5c29190bab0f2790eca6f1244ff252773675",
+      "sha256": "3826c27bb886d1f51f3df96d654b6b7781657d9635b5fcbc363757e6d5b57f0e"
+    },
+    {
+      "shard_id": "0021",
+      "filename": "sequence_shard_0021.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "3de6432869fa3386828886f245d855f8c0fe614916cf6f87f18f590c5c024b00",
+      "last_sequence_hash": "40e4603f9a9b8825d9f0ce95c36d360492bd5a7c0a975876b03bd6afba6155fd",
+      "sha256": "147d5144b732eb3f5b87e2996819c3a64711521e6cfd862ba80f1fc2009f6a1c"
+    },
+    {
+      "shard_id": "0022",
+      "filename": "sequence_shard_0022.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "40e499010b46456f54dedbf38ce01447db434f115948aa3635f6877757387901",
+      "last_sequence_hash": "43e3e9a029861240635e557d7287a4e72a65e598621f73eea3739ff619824f86",
+      "sha256": "7b8223524bff39ee2e3cd533b17c4d54c686861d69728d1f88542ee55baa21f4"
+    },
+    {
+      "shard_id": "0023",
+      "filename": "sequence_shard_0023.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "43e3eaef5255cbeaf43c256c07a8d9a54f1145777b193e99ac972639a08a0bac",
+      "last_sequence_hash": "46de61c60308b172eb1a48cb8dbd98a820c3702d8c9c50dd541cf79698eb31b2",
+      "sha256": "d45a2ab5997eb76ab020423cfd00afee190eeaa10fa45f29f5f60e518d26819e"
+    },
+    {
+      "shard_id": "0024",
+      "filename": "sequence_shard_0024.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "46de812b7d95ad79e1eadd36bd4ef18d4e266a87b006d1e13ccc0b41fde918cb",
+      "last_sequence_hash": "49d79cc544f1a6f010c97306972f241e9fd255aff2085e6595ef47e762177491",
+      "sha256": "3228e1e1bd596d4da88df3813fcc01e7ab9d5f895a2ca9c1bf404d5f2ccf29f4"
+    },
+    {
+      "shard_id": "0025",
+      "filename": "sequence_shard_0025.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "49d81197aec8496ae9e483623188dc5ab1368dcae2f63d052c318bc1e7ecbfd0",
+      "last_sequence_hash": "4cadd7d88c1712ea7e9df9914780e6cb7c69f90a611133f138accb5785f60c22",
+      "sha256": "8a8aece8ac2327c5e5caa2d05b7a19980c4a2ad196c3af85f38b8358c5292ccf"
+    },
+    {
+      "shard_id": "0026",
+      "filename": "sequence_shard_0026.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "4cae1108a8697c77f5d14bcfa52c0cebad4dc34a529a260cff35e7740c710c7f",
+      "last_sequence_hash": "4fbc8ea01d8bba0a7a4244cf98dfaad0ae804e456843b5fac9d6fbe575eea67d",
+      "sha256": "604ae7faec4b11e9004fc6e7a2acfd52b8cdf5428541be3844ec428348367772"
+    },
+    {
+      "shard_id": "0027",
+      "filename": "sequence_shard_0027.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "4fbc95c7fdeb1e60ee876e9783fe07551a5fed42ccec0517055003fdc86cb9c1",
+      "last_sequence_hash": "52bb735969351df4ce11da9f3d8ac027c5bc19312701e02ab3036f8147284452",
+      "sha256": "8dbd17b94e26915e1be97f236f747ae534f5f1a666cd06db6ce80695a532cfb9"
+    },
+    {
+      "shard_id": "0028",
+      "filename": "sequence_shard_0028.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "52bbe0696e0a1a94d99b0b09733f91565fcdb10d553da1f34ac20fbe3c09dbad",
+      "last_sequence_hash": "55b0ff93510201ee34541cd1edbfdb097508569f3099e5ecc438963f8aa1bd10",
+      "sha256": "4dede800a96444c87c6cbe2489989f8d631626c2ba299fed75fd1c6bd68c38b0"
+    },
+    {
+      "shard_id": "0029",
+      "filename": "sequence_shard_0029.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "55b1d02677a8f5b4373dab97b721dcf81ada4a3daf88c1ca977894b8d5904bef",
+      "last_sequence_hash": "58ad0d99e65a786f4e7572545aa2a0a70582a3e2ad928d0771705325eba0f6aa",
+      "sha256": "a20d8367be05b7581663023423e87d065e8b169137b121f2d43b0c91746f377d"
+    },
+    {
+      "shard_id": "0030",
+      "filename": "sequence_shard_0030.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "58ad9ee90b21bf861bc4ba9f53735828b9492266be188f6be9fe88fe7bad44de",
+      "last_sequence_hash": "5b98d43b43ce9c49ae806ae16e3f8e11420941a0fb33bb09c1c4a3a00e19623c",
+      "sha256": "2246ad7023b58effe4c69e78f2d96472955dbacb225b606ec301bb405ce98b3e"
+    },
+    {
+      "shard_id": "0031",
+      "filename": "sequence_shard_0031.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "5b99b82fa6cfb0707512ffe84e44057a7ff643ba0291a7f48b664b4323c88817",
+      "last_sequence_hash": "5e7cc6da40b50f502ca2ff58032122776e03b471eef8f3d34bb884018e2a9d05",
+      "sha256": "a572a39f90b1e7be9dfa1708814fcbea12484d4da0455da391deaacf5b1ca4a3"
+    },
+    {
+      "shard_id": "0032",
+      "filename": "sequence_shard_0032.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "5e7cda3281e5e1201a3a63940a30a43405c7bef1491364d4bc1b42be6b373cea",
+      "last_sequence_hash": "61656d7bce183e20b1d8b1d24ca97b650d0af209f911426cc711649069f4c068",
+      "sha256": "16757b7dd7b61537bb1ca4b93a1103544bd089993c9d082dde4daa0ede2a3073"
+    },
+    {
+      "shard_id": "0033",
+      "filename": "sequence_shard_0033.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "61658101b7c7117db5a732bc51f10a49c28a03489b9d1244e115db02571c75a3",
+      "last_sequence_hash": "64573c2529954a82c26342a2e3a88c8507761d0884d5f0fc38ec27c7c3fa2fd8",
+      "sha256": "3893c0108ebf139070b5aaba23339a2b655cc1b337c16502ac0ecd91cba32fcd"
+    },
+    {
+      "shard_id": "0034",
+      "filename": "sequence_shard_0034.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "6457f87538137887d1c514b0bfcdd4ca786bad4186613141e32857b78385066e",
+      "last_sequence_hash": "675346d4a538ad694c966b334a70d02bd015886534831c94ad857c43ac769482",
+      "sha256": "33d76ecc8a10d72af88d34f4dc06b91fa24f74f986c78dac9b76ac0f13dfc7a5"
+    },
+    {
+      "shard_id": "0035",
+      "filename": "sequence_shard_0035.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "675367116d77dd15b23cff5acc04c3ecb16af728862f7eec7ab884d4b24858ba",
+      "last_sequence_hash": "6a2c1751c76bbcc0c44befd5ce7d185fa974870f68a5082f9c42aa70f2a4c1a5",
+      "sha256": "1ec5443ea140aeae2eb0b29c5ebef278a9750a99fed4eff039f057bd9a656778"
+    },
+    {
+      "shard_id": "0036",
+      "filename": "sequence_shard_0036.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "6a2c721014aa4d3c6dabf1e0faa88867f4e26ded023c6124d19f949ad7584858",
+      "last_sequence_hash": "6d016cb12027cd7f76bdc5a2258b80fa58f51dc3b24b17091ed7052d7b1aea2e",
+      "sha256": "e3da18e2e7962b46b7e66208f49f40fb9a0b67cfb846d5c256538d9d4d152fc7"
+    },
+    {
+      "shard_id": "0037",
+      "filename": "sequence_shard_0037.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "6d0197b1493d7bea00b1e70a1a9a9839ec460aa0c3df88321e2a2009be47b85c",
+      "last_sequence_hash": "6fed528a6b53403ed90d4dc38d60e69e808beae9c3889aed2c3f28a5f20ccae9",
+      "sha256": "04b88141852878c240b2f6f706328486f6b2e2e3076e56c6ba9202417f51afe5"
+    },
+    {
+      "shard_id": "0038",
+      "filename": "sequence_shard_0038.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "6fedd3e7e5b4c7b30db9b1d13f4ce7326482ffa26fc68c086078992b4b9db835",
+      "last_sequence_hash": "72c57ad5dc4fd20675ae1e7ccfbc720ac243d369629ff5a76a21ac7166f19c9d",
+      "sha256": "5c61d876fed56f09783199c3ac05807a392edd7af76a27e89593d407f7df8a74"
+    },
+    {
+      "shard_id": "0039",
+      "filename": "sequence_shard_0039.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "72c58ffb7bce43a0d9bbc3be7c3f146851fb6ac619f08addad9ef2c839857eb6",
+      "last_sequence_hash": "75ad93f816b0803ae2b8502eba14aeb09b1957f8f17e1e2eb491773857f542bc",
+      "sha256": "92d6d24e953e55c00ec1ffe4670e1ad1b99b739d25a00849c89bcd3f76eb3fe8"
+    },
+    {
+      "shard_id": "0040",
+      "filename": "sequence_shard_0040.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "75ae01809bbcdf57889812f280455abbecf7bd4088fdc94b724cd9efa6f3146b",
+      "last_sequence_hash": "78b153b33bb03754e6cefd1cac6f497bb71e144f2d1be0d9c1f3dbda9ee53603",
+      "sha256": "ad0b32ca7bfd9ca7a5b086a91979705b8eba2cf91b5a66ca2964a8f850dfa26a"
+    },
+    {
+      "shard_id": "0041",
+      "filename": "sequence_shard_0041.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "78b19809b8cfa41ab07d4b844e5bb92c4881717145eff174710faec9ac53d829",
+      "last_sequence_hash": "7ba3a540c2f9b2913062aa18b7be96a79ed5c3d617218266e36b6375382edf72",
+      "sha256": "6c46ab1536fa544f7c7a2f4ea523b8a6346ed80b305fbaf64b39df3f4333ce38"
+    },
+    {
+      "shard_id": "0042",
+      "filename": "sequence_shard_0042.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "7ba3afbdb7288d54a9ed707b36f4a155301596a5c5bdda3439383c99f87c8303",
+      "last_sequence_hash": "7e7c5c5630cf4a2d4b6a8031ced6ba781d300751743a8839a357e72dab38ad0f",
+      "sha256": "ada82061ad284e23129e05c423d3763e8f578d27d540251f06d325a9f7f96bcd"
+    },
+    {
+      "shard_id": "0043",
+      "filename": "sequence_shard_0043.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "7e7c7a5601cef65a5dac2817aadb4fc0ad3291f8ae2b3093d68c4926e6258bb7",
+      "last_sequence_hash": "815c02ac9d56c6ecbf425ccf38b7a4d0e843540cfdb5f399c11f8a51b1b73cb5",
+      "sha256": "3df52819b7f8d262ec4f7812d4bf63d6be4786c3d3ec6f19aa5e77fe1c1c80ae"
+    },
+    {
+      "shard_id": "0044",
+      "filename": "sequence_shard_0044.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "815d4e857c3f2ff21716318183eee00e78279db316f757b4f25c3b710bf08465",
+      "last_sequence_hash": "845375bc507ea9315a05326500145b267306a277815610ec5988bd3c6d7896ba",
+      "sha256": "d711c4d79621f3c208b6d04b2e3cc78a85436094668ac3283a235fedde171021"
+    },
+    {
+      "shard_id": "0045",
+      "filename": "sequence_shard_0045.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "845380c3e07de09fcc75c204a49201265da9e5992005d3436cef8f695986bfe0",
+      "last_sequence_hash": "87376db5d674c71158129a13afc2b4c748eb2cf664b39b9cf6de8cdcf5d74fcd",
+      "sha256": "65bcd775e38814de5cadb1994c3df7391aa1e27cd3354e7173a54cf4edde0827"
+    },
+    {
+      "shard_id": "0046",
+      "filename": "sequence_shard_0046.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "8737d474c7b35d9bd5a49c9d14960a0d4a4cf6c07ed94c5fbcc8059dfa862a19",
+      "last_sequence_hash": "8a2586c423bee0da7cd4a38fecf00bcc41fe21b8f7837c832d6880a359e4564a",
+      "sha256": "9465ba37e24b575bb3d15a33328e04e407f1f84cb9b27fdc862f09b667613ee5"
+    },
+    {
+      "shard_id": "0047",
+      "filename": "sequence_shard_0047.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "8a2605b9a6e3406c2ab8b962999fe2b69c0f00d441dc862e5cdbf8e83b3ac3c8",
+      "last_sequence_hash": "8d123bb753891096b64c39e257212d265702a8ca5991291dc6d378503f9f6016",
+      "sha256": "e9b07d790ab08d66b963b312ce3f6043d5abbb9b193dead537fb7adb3d58eb6e"
+    },
+    {
+      "shard_id": "0048",
+      "filename": "sequence_shard_0048.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "8d124d0da7c086b318e6f187dc3f8b26dadef303fd2cda4b2f56ded60a3aa925",
+      "last_sequence_hash": "900c23b77feff5c09c6739ce131dbcdc583c67614feffecb4b01aac2006e1a2e",
+      "sha256": "9a3ed499cc852e8d8c65be819d0af87aaf101a9cca3b6f2596c4bc85c228f447"
+    },
+    {
+      "shard_id": "0049",
+      "filename": "sequence_shard_0049.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "900c4274896f12e031d4acb70ab99ce4974f3c9cef81d8cd06da1fdfa94c1a84",
+      "last_sequence_hash": "932496e91579d4cb59972d881a83af81d464bb35964829c4c5366c654db5a105",
+      "sha256": "a235f3f2d70371451787bbefdcc73467a7c18c7c2a7dc8ee4283dd2320d2e94e"
+    },
+    {
+      "shard_id": "0050",
+      "filename": "sequence_shard_0050.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "93249b9a6f9fd4515ca708377f71760a335826c08b25ed5e7e016cfab1076cac",
+      "last_sequence_hash": "9614971366f4773bf485da7fcb69040954804cfb8a8e4f8789ab666a61eaf41b",
+      "sha256": "27dd9d60ba46e0d2db37902c5ed64ee95f1e7cbd2de747e1dda5b64a4dc17bd6"
+    },
+    {
+      "shard_id": "0051",
+      "filename": "sequence_shard_0051.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "9614a3d1bc3edf9c26b1d899dc80c00b4c9cf8f1382760efb871030c19d6a6fd",
+      "last_sequence_hash": "990537b98f1559590c367127e4d5fadf1aaa63d0dd7d44a7edc1f724499a83a7",
+      "sha256": "8abf10753b963c33f589d19e1a53e9d9a342eadf7bf1874e8a93cbdd8875b3d7"
+    },
+    {
+      "shard_id": "0052",
+      "filename": "sequence_shard_0052.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "990558cfd6a93c013ba19cbef10d1c3b304f2fbc02cc4faf2bf1f7915757900a",
+      "last_sequence_hash": "9bebc767fe762effb6f1445438c93de09170eee39401a8d2b590c2c9e834a3fe",
+      "sha256": "c55a46b0a97c2afac0dcd20903bcd8b37f050a80ed6d9ceceeafbfb3945b8fa8"
+    },
+    {
+      "shard_id": "0053",
+      "filename": "sequence_shard_0053.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "9bebdc969595bbf042cbf236cbf5f0bf69a28b98b41741233bfe01dadfe507c5",
+      "last_sequence_hash": "9ebf821c0f9e71ffbd6e15ed6db67f20d05555183fc09bef73b7fd844cbf25e5",
+      "sha256": "58413ee977c03e996fb796757b1c3ea65d72cd7e8e910d6f475909083c1092bc"
+    },
+    {
+      "shard_id": "0054",
+      "filename": "sequence_shard_0054.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "9ebf8656361499838b4bf5f81ff85247801e1021c5be4dd09489098c3935922a",
+      "last_sequence_hash": "a1bf1f73a52a33207421409d5a69fa02dd2fe939e8d1a1f532a1581ece6565a5",
+      "sha256": "5a9bfae12b4345c32d89f7a1080e3a359a7abf863500d9776bee7d40985725ed"
+    },
+    {
+      "shard_id": "0055",
+      "filename": "sequence_shard_0055.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "a1c0c181ac88d3fb29db66e4d2b96dd60be658c1a9df843a0dcf3a9044bd6f32",
+      "last_sequence_hash": "a4b08f357e14107c9d6711c2a58178a3a905e20a0907f293f3916e7310b89fc7",
+      "sha256": "6190623c1212724fc7be561a77b0df94a7e663c56050fcabad20b53e09c5112f"
+    },
+    {
+      "shard_id": "0056",
+      "filename": "sequence_shard_0056.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "a4b0d4d8f4c2675b8ebbece92c61339f890bb8feb2054f6a34f5dca96b6f7d5a",
+      "last_sequence_hash": "a7acbd0914e8dc6e20d04291c19b982aa249d8b8066fe2cb280fea6caf61a1d3",
+      "sha256": "26eba28fdfd31239e65ceb931aca67a007ed22bc5ca4d601d4874293955cdfd3"
+    },
+    {
+      "shard_id": "0057",
+      "filename": "sequence_shard_0057.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "a7ad209d7f0cee9c736cadf91b5ba941306651e9cf7e5ce16a9c46ed7ae1d177",
+      "last_sequence_hash": "aaad593777aa81cb6f5baf399fe5ee28568c24c12fb147bb3594e416d09c7537",
+      "sha256": "1bd4b47ba81f6c26318057e216abb1fb029b43b474ab10377219b333215502fb"
+    },
+    {
+      "shard_id": "0058",
+      "filename": "sequence_shard_0058.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "aaad95d3af0456212d7f2cd0502b41e0f71c163ccfc8fbfb9d7766b35881484e",
+      "last_sequence_hash": "ad96c22ee2d74f6a8a3d9d745046d571adfde55b691b200ac2f6f0a363cf6239",
+      "sha256": "8dc275cba44277c0861d1e7d56503e3df5db505476d2cdd76a87db62af42268c"
+    },
+    {
+      "shard_id": "0059",
+      "filename": "sequence_shard_0059.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "ad96f6dd8f90e7ad2c826fa1cbe351db1a110623fc6e1bfdaee40a9e4a89ede3",
+      "last_sequence_hash": "b07b7e59df1ef3e054637bcd1d7a09b2c0cb8836c44750d7339f2c0510adfe67",
+      "sha256": "aa6fd23584495d077913bb5a10f1177a1e6cf8f4cd2368d8796a993ba00c3db0"
+    },
+    {
+      "shard_id": "0060",
+      "filename": "sequence_shard_0060.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "b07b9a9cceddf0f18126dd9c82f9965af1f05e637fa2c4e606b44b272ce55810",
+      "last_sequence_hash": "b37e162ca352ac46f95fe80a058ae2486edd9a000ddf9c529b25f0f135f1428c",
+      "sha256": "a91bd7e82611221e5be0af1357b6f6a480ac174fe562c2c66560780b492ac402"
+    },
+    {
+      "shard_id": "0061",
+      "filename": "sequence_shard_0061.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "b37e765a7cdd872a9a0ec3753ecbc2d83bdbbe6bf2dfcdbe509593a70ddbc442",
+      "last_sequence_hash": "b66732bada3b0bc4dc89d191a81572f43e7ac2ad246603e12bb32c2814253791",
+      "sha256": "27ec14607d653ca253cd796dcf470b26f8f80283932b32578cb244f583636c54"
+    },
+    {
+      "shard_id": "0062",
+      "filename": "sequence_shard_0062.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "b66772a3ef376bef60006589cf42aa08cf2795eeca0938d0624b4ab97482fef9",
+      "last_sequence_hash": "b95a67b630a51785f386ef6ca47c5834616e05b95a08cb2471bb776aa6f7020e",
+      "sha256": "51c240e6a685617a2df870ce7d29b7813ed899776466d2bf738859f94a70c0b7"
+    },
+    {
+      "shard_id": "0063",
+      "filename": "sequence_shard_0063.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "b95aa37afaa53eace9b2ba6958396e4d73d3d68f8082bb61905565b5637931d2",
+      "last_sequence_hash": "bc5a2b345c918bda03626b7875d60bbd34ae06a4775f2b44a2e8d6bbf8a72f60",
+      "sha256": "b6d01ab23dbd30a79fc262f7f9ef88edf5b15430392fb15440c6026514a03272"
+    },
+    {
+      "shard_id": "0064",
+      "filename": "sequence_shard_0064.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "bc5a4a7131f36f4cdf77c38ef9c7c97b0157cd56a357bb56476f179a825a82c7",
+      "last_sequence_hash": "bf3f7671f308599b58776550e7a8625eeb995d7660550131b1294d8590569a75",
+      "sha256": "16cb69473b74abb35e1c90ae5da8cfd4f064d1b868ae908aca876b918d64abd4"
+    },
+    {
+      "shard_id": "0065",
+      "filename": "sequence_shard_0065.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "bf3f911330e1ee73cef21bec54817f86aa32e339a3cddb2d57ded38a10011cc1",
+      "last_sequence_hash": "c21f513e7049ff5a63ed01ec94ae625d2a0a6bc74be0f4fbc42f21e6faceec35",
+      "sha256": "5c4cc8cb1b794c1660ebaee61e7c79b65acc5e10b2d0f6e158e3aa167144471f"
+    },
+    {
+      "shard_id": "0066",
+      "filename": "sequence_shard_0066.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "c21f5d827a71403a0878704b7150a284104835c0c73f979ba9b8049b52b10921",
+      "last_sequence_hash": "c51330e0816f8a92362630176e53f78dfb60716d1436749dfeba2024300dec9f",
+      "sha256": "d11b47a300c9724a665a151dc40ed56cd32626ae08b59159a044bfa7c6850255"
+    },
+    {
+      "shard_id": "0067",
+      "filename": "sequence_shard_0067.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "c5136206a6ccab9e2a7699d6be3e2f40fe5c228b745e5522280f4f47436c2a3e",
+      "last_sequence_hash": "c7f5d757ce46ea8a927240fce4ca15edbf799af0bfe2e858044eeee277538ccc",
+      "sha256": "1ef69913802a48f1225de0cc77fdbdd6742582d36f26c124bbde9eb33b966403"
+    },
+    {
+      "shard_id": "0068",
+      "filename": "sequence_shard_0068.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "c7f639d8dcf663c6736ed99bbc255711b536a26e6e08372e8eea3a7aa99f60d8",
+      "last_sequence_hash": "cacc66bc8589c9d5cb5038f2cccafe67ba18a2d5dbc111ee00890b97e7dfbee0",
+      "sha256": "8a025a3a266f39dbb26c91bd1b9076b3fe891120cc0e5b0bb5fa7be4f4b1f0b2"
+    },
+    {
+      "shard_id": "0069",
+      "filename": "sequence_shard_0069.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "cacc8a1c1cd8c2d94aa880aa5e1bdbe83fb8e180e122a969cabb80cabca9fd02",
+      "last_sequence_hash": "cdb9c897b72c77bf5ddbad7dba9bc53facf20da22415d9d0269c58ca8550a29e",
+      "sha256": "20ac06c816a67ee55c749ff40f814641e972576aa8dae69ca55894a422b2b683"
+    },
+    {
+      "shard_id": "0070",
+      "filename": "sequence_shard_0070.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "cdbb3dffd38d799a1f44e09258d4c039775dad2b3043c6a0755fe236a118bfe2",
+      "last_sequence_hash": "d087d057a5ce189068f50e946f6050ac27724b45eafdc17e07ea7d0995079f9a",
+      "sha256": "9541e9a030e5ecd0b24fc2cba434f346251b8b76dacf1b9015353e81f83e157b"
+    },
+    {
+      "shard_id": "0071",
+      "filename": "sequence_shard_0071.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "d0880c439e8b176514c3e0c6a7375c40f7bc02c579844c354a8a36a42e6e42c6",
+      "last_sequence_hash": "d34f4aef662764c57b4dc1344c0d638b89854eac7c15387d7bbf26fcb3595642",
+      "sha256": "bf3f93ed88415cc39274a9547381429e7ffb093e644b54583bff50e347c78e0b"
+    },
+    {
+      "shard_id": "0072",
+      "filename": "sequence_shard_0072.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "d34f9190c0b0e2b819d843a194d68a69dfb79d38d8d55c671dd1512c66e4f6e0",
+      "last_sequence_hash": "d63cd55762552b3d2c47905e3d2c1ae387ed57415976fa0275c3a56f10352679",
+      "sha256": "86e347fb745ba8d02aeb15dc8fd4a5d54b07d4805e163bf7930ee3c9ddc88884"
+    },
+    {
+      "shard_id": "0073",
+      "filename": "sequence_shard_0073.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "d63ce65f847117303891b9566d3403c04407b4a1a8b354d5f82768a1e9d557fa",
+      "last_sequence_hash": "d92f900ac8020a426b7eec45e0480976d68873adbf6440052d03e0bf5b3425ce",
+      "sha256": "fc1b2685d7ff880881faef3cbe0aef1189667d5419746a6353a65285a54dfb69"
+    },
+    {
+      "shard_id": "0074",
+      "filename": "sequence_shard_0074.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "d92fa4b0282c80e2f31680640f1e30101206ceee2b096257d2d450633b2b5261",
+      "last_sequence_hash": "dc23200d18fc7647b86b785929702062e2d6a5e06d31df322627ab229c6d9736",
+      "sha256": "de078d0b5ae2d1dd383992e505847950d90020c0b3289b2632433ccef9403ebf"
+    },
+    {
+      "shard_id": "0075",
+      "filename": "sequence_shard_0075.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "dc234b72a85c34da0b92b060c97bd94491719af160f28462c06af0363f7f33c0",
+      "last_sequence_hash": "df18844982fb41dd2c57bd34e04b9d8585e7d778bd2b6006239ab139e2031bf8",
+      "sha256": "e52d5a2225de730a176063df8018c012a7c6c53e8f7b5cfa37a16be6314eaf6b"
+    },
+    {
+      "shard_id": "0076",
+      "filename": "sequence_shard_0076.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "df194b88d11a5c3e86deb026adfa8694f2ff6f8c172f23aa11f59cae2d90a46f",
+      "last_sequence_hash": "e20257d0d90cae0e993771762018d062c5280def1cbcf69b98268dfc7a09806a",
+      "sha256": "65550d5acc75dfa6788f76afe4f153350ec7b6b544e021dea40b073cc88f856c"
+    },
+    {
+      "shard_id": "0077",
+      "filename": "sequence_shard_0077.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "e2027577a8f503dcdd0049acb7f094ac4bc43f26245ec1b52102732390c102bd",
+      "last_sequence_hash": "e4d347c11b0569608066e36f7f033d7acab8e314176cf69b48c011a7eb55c432",
+      "sha256": "612af17080a88270ce5dfb8324e35b0ecf379c781576d4d919ce26e9f117a068"
+    },
+    {
+      "shard_id": "0078",
+      "filename": "sequence_shard_0078.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "e4d4ef6ff18d4e23b1f014127dd434383240e22cf1cbd8773c4c96895c8d608a",
+      "last_sequence_hash": "e7d920ebcd62fbf3af7c80980fac614b565d066b35e1569d77c34fde0c8a6771",
+      "sha256": "91ecbdf48c9c17dc491df1fd6a6e51798997ac7ab22cb0a59382e16bb609790f"
+    },
+    {
+      "shard_id": "0079",
+      "filename": "sequence_shard_0079.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "e7d949c48222c675e5e8626249da50b2b5c92d16898a84da93bfd1ebe79a8896",
+      "last_sequence_hash": "ead88aa0a7778d0f981005d09140df316e741bedc2a2e9f8ed9ba4cf93cd2f24",
+      "sha256": "a28e67bdf8065af1caa6512b47ef63e14bea7fa3994396b6f61994df35ca638a"
+    },
+    {
+      "shard_id": "0080",
+      "filename": "sequence_shard_0080.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "ead896e3074cc1e1f9151dd0fa0ce6076b0923a448aeecfc7e6ca8e3cd47d390",
+      "last_sequence_hash": "edb6712b33fe492ac1acac475b324228a479d09c363403429c1a241faa367535",
+      "sha256": "d88b3c9847c69b5a4cc1db6c3c5d7e83e290f4925643e2b00467177dfba5a45d"
+    },
+    {
+      "shard_id": "0081",
+      "filename": "sequence_shard_0081.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "edb675f3741cf5eebd97d37927e31ac8db12feb8c95a417d7dd516090b0b4e67",
+      "last_sequence_hash": "f0aa784cd6aa1e6f51f1f549335f951843ed965f84d3f3704a5a821582325148",
+      "sha256": "e0976bc76a05a66db80950c8c594ac8ecdeddce07f3dbc97a10466329fff07df"
+    },
+    {
+      "shard_id": "0082",
+      "filename": "sequence_shard_0082.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "f0aa99ce8618b861c0920ea366cb7072a2fda4815bc7aa9be20f3ea7d1293e74",
+      "last_sequence_hash": "f380bfdf8785dc6e846d06d1f93aebb1d1de570ffadbc773651cc87abbf6fa30",
+      "sha256": "d862be498e41d96b0f635027a37c37c5e48b9a991a0bece7c4f2894b6b729129"
+    },
+    {
+      "shard_id": "0083",
+      "filename": "sequence_shard_0083.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "f3813b3faab225d64c415a8490b2d42c24f70c14285dac132c50ce4b0a499a8c",
+      "last_sequence_hash": "f66f1c93c9dcf856efeb19e4c881b8a45b26c9d3fad879983b29346c414351db",
+      "sha256": "606f1f182c4ef4c6f5660efabafa6a56b48b8bdd66a7ddc5c7b8ec5d0cd1d0f9"
+    },
+    {
+      "shard_id": "0084",
+      "filename": "sequence_shard_0084.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "f66f595440efc09eb2d1c71c209a259cf0e6151d1b721148827b26120c32f9da",
+      "last_sequence_hash": "f96357a8f65ba6f94d5ff7a3e723aeb16c8fc33f538db4d57a4343bd85f518d3",
+      "sha256": "f38c0499936b37fe2983b4824f8a3bb59db1c6eca4334dd66b07a2af3fd8cdf0"
+    },
+    {
+      "shard_id": "0085",
+      "filename": "sequence_shard_0085.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "f96383422e5e63c504d875e09bf60a22242bf6df2b878a970edf04864ec284c5",
+      "last_sequence_hash": "fc36b767adb31ee069d0034b9ea898e6d8d85d14d21f0a5e57bb659a47b84d8e",
+      "sha256": "a8617552a6f053947fd2f5ccb6c45a9ae78b94d5e357d4d84afc760fb03142c3"
+    },
+    {
+      "shard_id": "0086",
+      "filename": "sequence_shard_0086.parquet",
+      "row_count": 2000,
+      "first_sequence_hash": "fc37173838ce6608c2758b924b15a3a924076b1b6c9a1c820e3939cc8416883b",
+      "last_sequence_hash": "ff31965317151870209f71c2c3878752c11a1c508a44e3998d724f96a9560809",
+      "sha256": "a9e92bb11680936c2f291e3de5e1e6f1f2a1d218fcb221cc45d47d5b2c0037aa"
+    },
+    {
+      "shard_id": "0087",
+      "filename": "sequence_shard_0087.parquet",
+      "row_count": 585,
+      "first_sequence_hash": "ff31c82b1c074b415e9c0c39318891dded455cbf7c8c58c1e001d3a1c3247b7e",
+      "last_sequence_hash": "ffff4453f19a1f826b15b4f04aa8570e1bba3680adbf481c33eba34a7828fdda",
+      "sha256": "7b258fcfd80ac96bfdb0846f6c9237635d663c4de489d9d5b282acf50f2e5231"
+    }
+  ]
+}

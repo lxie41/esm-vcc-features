@@ -1,0 +1,148 @@
+[
+  {
+    "precision": "fp32",
+    "length": 100,
+    "tokens": 102,
+    "shape": [
+      100,
+      1280
+    ],
+    "seconds": 0.3492485999595374,
+    "residues_per_second": 286.328993191628,
+    "peak_vram_bytes": 2693648896,
+    "finite": true
+  },
+  {
+    "precision": "fp32",
+    "length": 300,
+    "tokens": 302,
+    "shape": [
+      300,
+      1280
+    ],
+    "seconds": 0.07019379991106689,
+    "residues_per_second": 4273.881744257892,
+    "peak_vram_bytes": 2717131776,
+    "finite": true
+  },
+  {
+    "precision": "fp32",
+    "length": 500,
+    "tokens": 502,
+    "shape": [
+      500,
+      1280
+    ],
+    "seconds": 0.18740259995684028,
+    "residues_per_second": 2668.052631687887,
+    "peak_vram_bytes": 2746963968,
+    "finite": true
+  },
+  {
+    "precision": "fp32",
+    "length": 800,
+    "tokens": 802,
+    "shape": [
+      800,
+      1280
+    ],
+    "seconds": 0.2679792999988422,
+    "residues_per_second": 2985.3052082883137,
+    "peak_vram_bytes": 2825410560,
+    "finite": true
+  },
+  {
+    "precision": "fp32",
+    "length": 1022,
+    "tokens": 1024,
+    "shape": [
+      1022,
+      1280
+    ],
+    "seconds": 0.2890796000137925,
+    "residues_per_second": 3535.3584270603615,
+    "peak_vram_bytes": 2899112448,
+    "finite": true
+  },
+  {
+    "precision": "fp16",
+    "length": 100,
+    "tokens": 102,
+    "shape": [
+      100,
+      1280
+    ],
+    "seconds": 0.22709539998322725,
+    "residues_per_second": 440.343573702443,
+    "peak_vram_bytes": 3986564096,
+    "finite": true
+  },
+  {
+    "precision": "fp16",
+    "length": 300,
+    "tokens": 302,
+    "shape": [
+      300,
+      1280
+    ],
+    "seconds": 0.0878289999673143,
+    "residues_per_second": 3415.728291471444,
+    "peak_vram_bytes": 4015568896,
+    "finite": true
+  },
+  {
+    "precision": "fp16",
+    "length": 500,
+    "tokens": 502,
+    "shape": [
+      500,
+      1280
+    ],
+    "seconds": 0.07563909993041307,
+    "residues_per_second": 6610.3377811210485,
+    "peak_vram_bytes": 4013515776,
+    "finite": true
+  },
+  {
+    "precision": "fp16",
+    "length": 800,
+    "tokens": 802,
+    "shape": [
+      800,
+      1280
+    ],
+    "seconds": 0.24863089993596077,
+    "residues_per_second": 3217.6209803610654,
+    "peak_vram_bytes": 4121412096,
+    "finite": true
+  },
+  {
+    "precision": "fp16",
+    "length": 1022,
+    "tokens": 1024,
+    "shape": [
+      1022,
+      1280
+    ],
+    "seconds": 0.21156860003247857,
+    "residues_per_second": 4830.58449998303,
+    "peak_vram_bytes": 4172831232,
+    "finite": true
+  },
+  {
+    "precision_comparison": "mean",
+    "length": 500,
+    "cosine": 1.0,
+    "max_abs": 0.0014829635620117188,
+    "mean_abs": 5.044715362600982e-05,
+    "relative_l2": 0.0003321058757137507
+  },
+  {
+    "precision_comparison": "mean_sd",
+    "length": 500,
+    "cosine": 1.0,
+    "max_abs": 0.0014829635620117188,
+    "mean_abs": 3.633495362009853e-05,
+    "relative_l2": 0.0002998391864821315
+  }
+]

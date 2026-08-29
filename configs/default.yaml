@@ -1,0 +1,67 @@
+project:
+  name: protein_embeddings
+  status: PHASE_5_ESM2_PILOT_COMPLETE
+
+annotation:
+  source: GENCODE
+  release: "50"
+  genome_build: GRCh38.p14
+  annotation_scope: comprehensive_all_regions
+  protein_fasta: data/raw/gencode/v50/gencode.v50.pc_translations.fa.gz
+  relationship_source: data/raw/gencode/v50/gencode.v50.chr_patch_hapl_scaff.annotation.gtf.gz
+  mane_release: "1.5"
+  mane_summary: data/raw/mane/v1.5/MANE.GRCh38.v1.5.summary.txt.gz
+  mane_policy: flag_only_preserve_all_gencode_isoforms
+
+esm:
+  model_name: esm2_t33_650M_UR50D
+  inference_only: true
+  embedding_dim: 1280
+  device: cuda
+  dtype: fp16_autocast_with_fp32_accumulation
+  layer: 33
+  implementation: fair-esm==2.0.0
+  checkpoint: data/external/esm2/esm2_t33_650M_UR50D.pt
+  pooling: mean_residue_tokens_excluding_bos_eos
+  context_residues: 1022
+  long_protein_window: 1022
+  long_protein_overlap: 128
+  reconstruction_weighting: triangular
+  reconstruction_edge_handling: positive_deterministic_taper_with_full_coverage
+  reconstruction_dtype: float32
+  production_status: frozen_for_next_extraction_task
+  swe_status: future_task_adaptive_pooling
+  parti:
+    attention_layers: all_33
+    head_aggregation: max
+    layer_aggregation: max
+    pagerank_alpha: 0.85
+    pagerank_tol: 1.0e-6
+    pagerank_max_iter: 100
+    bos_eos: excluded_after_pagerank
+    long_strategy: local_parti_triangular_merge_global_normalize
+
+arc_baseline:
+  enabled: true
+  source: ArcInstitute/SE-600M
+  revision: 985310635c9d6d5a60c0eb106f836ceab29f0c99
+  path: data/external/phase1/arc/protein_embeddings.pt
+  embedding_dim: 5120
+  entries: 19790
+  namespace: arc_state_gene_level
+
+isoforms:
+  preserve_individual_isoforms: true
+  canonical_definition: "TODO: VERIFY"
+
+storage:
+  residue_embeddings: transient_only
+  isoform_embeddings: true
+  gene_embeddings: false
+  feature_bank: hash_keyed_npy_plus_json_metadata
+  checkpoint_resume: atomic_shard_json_completed_hashes_and_failure_log
+
+paths:
+  data_root: ./data
+  embeddings_root: ./embeddings
+  reports_root: ./reports

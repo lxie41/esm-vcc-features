@@ -1,0 +1,18 @@
+{
+  "status": "READY FOR FULL ESM EXTRACTION",
+  "mapping_modified": false,
+  "full_extraction_started": false,
+  "model": "esm2_t33_650M_UR50D",
+  "model_sha256": "EA9D0522B335A8778DEA6535A65301F10208DECE28CD5865482B0B1FC446168C",
+  "environment": {"python": "3.12", "pytorch": "2.4.1+cu124", "fair_esm": "2.0.0", "gpu": "NVIDIA GeForce RTX 3070 Ti", "vram_bytes": 8589410304},
+  "features": {"mean_dim": 1280, "mean_sd_dim": 2560, "parti_dim": 1280},
+  "parti": {"layers": "1-33", "heads": 20, "head_aggregation": "max", "layer_aggregation": "max", "pagerank_alpha": 0.85, "pagerank_tol": 1e-6, "pagerank_max_iter": 100, "bos_eos_padding": "excluded_from_residue_pooling", "weight_normalization": "sum_to_one"},
+  "long_protein_parti": {"window": 1022, "overlap": 128, "weighting": "triangular", "strategy": "local_parti_weights_then_triangular_merge_then_global_normalization_then_weight_reconstructed_H", "dtype": "float32", "limitation": "cannot restore beyond-context attention"},
+  "precision": {"mode": "cuda_autocast_fp16", "model_storage": "float32", "reconstruction_accumulation": "float32", "parti_vector_cosine_vs_fp32": 0.99999994, "parti_vector_relative_l2_vs_fp32": 0.0003336752},
+  "gene_aggregation": "ordinary_mean_across_valid_isoforms_for_G0_G1_G2",
+  "swe": "future_task_adaptive_pooling_not_precomputed",
+  "storage": "hash_keyed_binary_matrices_plus_metadata_and_atomic_checkpoint",
+  "colab_launcher": "colab/esm_full_extraction.ipynb",
+  "regression_tests": "7 passed",
+  "remaining_notes": ["nvidia-smi CLI unavailable; GPU verified directly by PyTorch", "full production shard run is intentionally deferred to next task"]
+}
