@@ -32,6 +32,9 @@ def load_model(checkpoint: str | None = None, device: str | None = None):
     if checkpoint:
         # Load the model state directly: ordinary residue/attention extraction
         # does not require FAIR's separate contact-regression weights.
+        # PyTorch >=2.6 defaults to weights_only=True.  FAIR's official
+        # checkpoint contains the model package metadata needed by fair-esm;
+        # this explicit compatibility setting does not alter the weights.
         model_data = torch.load(checkpoint, map_location="cpu", weights_only=False)
         model, alphabet = esm.pretrained.load_model_and_alphabet_core(
             Path(checkpoint).stem, model_data, None
@@ -120,6 +123,67 @@ def residue_embeddings_and_parti_attention_streaming(model, alphabet, sequence: 
     if states.shape[0] != len(sequence) or not torch.isfinite(states).all():
         raise RuntimeError("invalid streaming ESM residue output")
     return states, running.detach().float().cpu()
+
+
+def residue_embeddings_and_parti_attention_streaming_batch(
+    model, alphabet, sequences: Sequence[str], device: str = "cuda",
+    autocast_dtype=None,
+) -> list[tuple[torch.Tensor, torch.Tensor]]:
+    """Batch native-context ESM/PaRTI inputs without mixing padded residues.
+
+    The model sees one padded batch, but each returned item is sliced to its
+    own amino-acid length before PaRTI PageRank is run.  Attention reduction
+    remains the official max-over-heads followed by max-over-layers operation.
+    All returned tensors are CPU float32 and contain no BOS, EOS, or padding.
+    """
+    if not sequences:
+        return []
+    if any(len(sequence) > 1022 for sequence in sequences):
+        raise ValueError("batched native-context path received a sequence over 1022 residues")
+
+    converter = alphabet.get_batch_converter()
+    _, _, tokens = converter([(f"sequence_{i}", sequence) for i, sequence in enumerate(sequences)])
+    tokens = tokens.to(device)
+    padding_mask = tokens.eq(model.padding_idx)
+    with torch.inference_mode():
+        x = model.embed_scale * model.embed_tokens(tokens)
+        if model.token_dropout:
+            x.masked_fill_((tokens == model.mask_idx).unsqueeze(-1), 0.0)
+            mask_ratio_train = 0.15 * 0.8
+            src_lengths = (~padding_mask).sum(-1)
+            mask_ratio_observed = (tokens == model.mask_idx).sum(-1).to(x.dtype) / src_lengths
+            x = x * (1 - mask_ratio_train) / (1 - mask_ratio_observed)[:, None, None]
+        x = x * (1 - padding_mask.unsqueeze(-1).type_as(x))
+        x = x.transpose(0, 1)
+        pmask = None if not padding_mask.any() else padding_mask
+        running = None
+        context = (torch.autocast(device_type="cuda", dtype=autocast_dtype)
+                   if autocast_dtype is not None and device.startswith("cuda") else nullcontext())
+        with context:
+            for layer in model.layers:
+                x, attn = layer(x, self_attn_padding_mask=pmask, need_head_weights=True)
+                # fair-esm returns head x batch x target x source here.
+                # Reduce heads only; retaining batch is essential for padded
+                # dynamic batches.
+                layer_max = attn.max(dim=0).values
+                running = layer_max if running is None else torch.maximum(running, layer_max)
+            x = model.emb_layer_norm_after(x).transpose(0, 1)
+
+    states = x.detach().float().cpu()
+    attention = running.detach().float().cpu()
+    results = []
+    for index, sequence in enumerate(sequences):
+        length = len(sequence)
+        residue = states[index, 1:length + 1]
+        # Keep the BOS/EOS-inclusive matrix for the faithful PageRank helper;
+        # it removes special tokens after graph scoring.
+        attn = attention[index, :length + 2, :length + 2]
+        if residue.shape != (length, model.embed_dim) or not torch.isfinite(residue).all():
+            raise RuntimeError(f"invalid batched residue output at index {index}")
+        if not torch.isfinite(attn).all():
+            raise FloatingPointError(f"non-finite batched attention output at index {index}")
+        results.append((residue, attn))
+    return results
 
 
 def chunk_starts(length: int, window_size: int, overlap: int) -> list[int]:

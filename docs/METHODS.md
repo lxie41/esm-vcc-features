@@ -485,3 +485,29 @@ finite. The feature-bank prototype uses hash-indexed NumPy matrices plus JSON
 metadata; atomic completed-hash checkpoint support is implemented. SWE was not
 generated because its project-specific static reference/projection parameters
 are not frozen.
+
+### A100 production execution mode (2026-08-29)
+
+The production extractor supports length-aware dynamic batching for native-context
+proteins (<=1022 residues). Rows are sorted by length within each execution
+batch, constrained by a configurable total-token budget and maximum batch size,
+and results are restored by sequence_hash before writing. BOS, EOS, and padding
+are sliced independently for every sequence. Proteins over 1022 residues retain
+the serial validated chunk/reconstruction path.
+
+The frozen feature mathematics is unchanged: FP16 CUDA autocast is used for
+model execution, while residue reconstruction, pooling, accumulation, and
+stored outputs are float32. `scripts/benchmark_extraction.py` compares serial
+and batched Mean, SD, and PaRTI outputs on a deterministic stratified subset.
+The Colab A100 serial baseline for shard 0000 was 3,351.6 proteins/hour with
+approximately 3.4/40 GiB observed GPU memory. A100 batch-budget measurements
+must be recorded by running the benchmark harness on a separate subset; this
+repository preparation does not rerun shard 0000 or launch remaining shards.
+
+The local reference environment is RTX 3070 Ti, Python 3.12, PyTorch 2.4.1+cu124,
+and fair-esm 2.0.0. The production target environment is Colab A100-SXM4-40GB,
+Python 3.13, PyTorch 2.11.0+cu128, and fair-esm 2.0.0. The official checkpoint
+is loaded with `torch.load(..., weights_only=False)` under PyTorch >=2.6 as a
+checkpoint-package compatibility setting; it does not change model weights or
+scientific definitions. Cross-environment numerical equivalence must be
+reported from a fixed subset before the A100 execution mode is frozen.

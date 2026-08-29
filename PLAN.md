@@ -155,3 +155,15 @@ chunk, triangular merge, global normalization, weighted reconstructed H.
 SWE/quantile remain deferred. The resumable binary feature schema and Colab
 launcher are prepared; the 2-row shard dry run and resume check passed. Full
 extraction remains prohibited in this task and is the next explicit phase.
+
+## Production throughput preparation — IN PROGRESS
+
+- Dynamic native-context batching is implemented with configurable token and
+  batch-size limits; long proteins retain the frozen serial reconstruction path.
+- A separate serial-vs-batched benchmark harness is prepared for a deterministic
+  100–300 protein subset. It must be run on Colab A100 before freezing the A100
+  execution budget; shard 0000 is not a benchmark input.
+- The manifest-driven resumable Colab runner is implemented and validates local
+  outputs before Drive publication.
+- Production extraction has not started. The next task may run the benchmark
+  and, only after its numerical-equivalence gate passes, launch all shards.

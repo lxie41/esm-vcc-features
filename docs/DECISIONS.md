@@ -252,3 +252,23 @@ Default gene aggregation is ordinary mean across valid protein isoforms for
 G0/G1/G2. Isoform variance and MANE-anchor aggregations are optional future
 products. SWE/SWE-Simple, quantile pooling, and other learned pooling are not
 primary precomputed features; SWE remains future task-adaptive pooling.
+
+## 2026-08-29 — Production throughput execution contract
+
+Native-context sequences may use dynamic length-aware batches under configurable
+`max_tokens` and `max_batch_size` limits. The default implementation uses
+`max_tokens=8192` and `max_batch_size=16` as an execution starting point only;
+the A100 benchmark harness must select the measured production budget. Hash-keyed
+records are restored to deterministic sequence_hash order before output, and
+per-sequence BOS/EOS/padding exclusion is preserved.
+
+No batching is applied to the validated >1022-residue chunk/reconstruction path.
+FP16 CUDA autocast and float32 outputs/accumulation remain frozen. The runner
+`scripts/run_production_shards.py` copies one manifest shard to local scratch,
+invokes the shared extractor, validates all three matrices/checkpoint/counts,
+publishes only QC-valid outputs to Drive, and skips already valid outputs.
+
+The A100 shard-0000 result (3,351.6 proteins/hour, 0 failures, ~3.4/40 GiB)
+is retained as the serial baseline. It is not rerun here. The A100 batched
+throughput and cross-environment numerical-equivalence report remain an explicit
+Colab benchmark gate, not an assumed result.

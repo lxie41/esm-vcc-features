@@ -208,3 +208,22 @@ must use the validated streaming attention reduction. `nvidia-smi` CLI text is
 still unavailable, but PyTorch CUDA inference is operational. The remaining
 pre-production validation is pipeline-level dry-run/Colab launcher checking;
 no biological or representation research is reopened.
+
+## Dynamic batching and Colab runner (2026-08-29)
+
+`extract_esm_features.py` now has a native-context dynamic batching path and a
+`--disable-batching` serial reference mode. Batches are length-sorted and obey
+total-token and maximum-size limits; outputs are keyed and written in hash order.
+The implementation calls the same ESM/PaRTI code for Windows, Linux/HPC, and
+Colab. `benchmark_extraction.py` is the required separate serial-vs-batched
+measurement harness.
+
+`run_production_shards.py` is a resumable Drive orchestrator. It validates input
+checksums, skips QC-valid completed outputs, keeps local scratch separate from
+Drive, publishes only complete finite Mean/SD/PaRTI matrices, and leaves prior
+completed shards untouched on failure. It has not been invoked for production.
+
+The only available A100 number is the user-provided serial shard-0000 baseline:
+3,351.6 proteins/hour, 0 failures, 0.5967 hours, and ~3.4/40 GiB. A100 dynamic
+batch benchmark and fixed-subset RTX-3070-Ti/A100 numerical equivalence are not
+claimed until executed on a separate subset in Colab.

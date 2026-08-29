@@ -29,6 +29,10 @@ esm:
   reconstruction_weighting: triangular
   reconstruction_edge_handling: positive_deterministic_taper_with_full_coverage
   reconstruction_dtype: float32
+  native_context_batching: true
+  max_tokens: 8192
+  max_batch_size: 16
+  long_proteins_serial_chunk_path: true
   production_status: frozen_for_next_extraction_task
   swe_status: future_task_adaptive_pooling
   parti:

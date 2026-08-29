@@ -38,7 +38,13 @@ Install the pinned dependencies from `requirements.txt` in a fresh environment. 
 
 2. Validate `manifest.json` and upload the shards plus the already verified ESM2 checkpoint to Google Drive.
 3. Open `colab/esm_full_extraction.ipynb`, mount Drive, clone this repository, install pinned dependencies, verify CUDA and the checkpoint checksum, and select one input shard.
-4. The notebook invokes `scripts/extract_esm_features.py`, writing binary Mean, SD, and PaRTI arrays plus metadata/checkpoint files back to Drive.
+4. The notebook invokes `scripts/run_production_shards.py`, which calls the shared `scripts/extract_esm_features.py` with length-aware native-context batching, validates each local result, publishes only QC-valid binary Mean, SD, and PaRTI arrays plus metadata/checkpoint files to Drive, and skips completed shards.
 5. Download or sync completed feature shards back to the local workspace and run final completeness/hash/QC merge checks.
+
+The extractor defaults to `--max-tokens 8192 --max-batch-size 16`; benchmark
+these controls on the target A100 with `scripts/benchmark_extraction.py` using a
+separate 100–300 protein subset before changing the production budget. Use
+`--disable-batching` for the serial reference comparison. Long proteins remain
+on the validated per-protein chunk/reconstruction path.
 
 Production extraction is intentionally not launched by the shard-preparation task. Model weights, frozen mapping tables, sequence shards, feature outputs, and checkpoints remain outside Git.
